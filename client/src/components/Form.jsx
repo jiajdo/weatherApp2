@@ -10,10 +10,10 @@ function Form() {
     const [data, setData] = useState('')
 
     const getWeather = async () => {
+        console.log(city, 'city')
         const response = await fetch(
             `http://localhost:4040/api?city=${city}`
         )
-
         const weatherData = await response.json()
         setData(weatherData)
         
