@@ -11,7 +11,7 @@ function Form() {
 
     const getWeather = async () => {
         const response = await fetch(
-            `http://localhost:8080/api?city=${city}`
+            `http://localhost:4040/api?city=${city}`
         )
 
         const weatherData = await response.json()
