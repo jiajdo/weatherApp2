@@ -20,11 +20,12 @@ app.get("/", (req, res) => {
 });
 
 app.get("/api", async (req, res) => {
+  //console.log({req, "from the get"})
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${req.query.city}&appid=${APIKEY}`;
   const response = await fetch(url);
   const weatherData = await response.json();
   res.json(weatherData);
-  //  console.log(weatherData);
+   console.log(weatherData);
 });
 
 app.get("/name", (req, res) => {
@@ -33,8 +34,8 @@ app.get("/name", (req, res) => {
 });
 
 app.post("/addCity", async (req, res) => {
-  const city = req.body;
-  console.log(req);
+  const {city} = req.body;
+  //console.log({req});
   try {
     //SQL Query
     const newCity = {};
