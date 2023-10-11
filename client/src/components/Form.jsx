@@ -13,6 +13,7 @@ function Form() {
     setData(weatherData);
   };
 
+//This needs to fetch weatherData
   const addCityRoute = async () => {
     const response = await fetch(`http://localhost:4040/addCity`, {
       method: "POST",
