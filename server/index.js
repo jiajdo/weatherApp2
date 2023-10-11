@@ -35,12 +35,14 @@ app.get("/name", (req, res) => {
 
 //Add city functionality that isn't working
 app.post("/addCity", async (req, res) => {
-  const {city} = req.body;
-  //console.log({req});
-  try {
-    //SQL Query
-    const newCity = {};
-  } catch {}
+  console.log('entering post')
+  const city = await req.body
+  console.log(city)
+  res.send(`We can search for this item on our backend: ${city}`)
+  // try {
+  //   //SQL Query
+  //   const newCity = {};
+  // } catch {}
 });
 
 // console.log that your server is up and running
