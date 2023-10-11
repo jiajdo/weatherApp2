@@ -33,6 +33,7 @@ app.get("/name", (req, res) => {
   res.json(name);
 });
 
+//Add city functionality that isn't working
 app.post("/addCity", async (req, res) => {
   const {city} = req.body;
   //console.log({req});
