@@ -18,7 +18,7 @@ function Form() {
     const response = await fetch(`http://localhost:4040/addCity`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({data:data}),
+      body: JSON.stringify({city:city}),
     });
   };
 

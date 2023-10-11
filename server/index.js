@@ -25,7 +25,7 @@ app.get("/api", async (req, res) => {
   const response = await fetch(url);
   const weatherData = await response.json();
   res.json(weatherData);
-   console.log(weatherData);
+  console.log(weatherData);
 });
 
 app.get("/name", (req, res) => {
@@ -33,16 +33,23 @@ app.get("/name", (req, res) => {
   res.json(name);
 });
 
-//Add city functionality that isn't working
+//Broken add city functionality. Can only fetch city but not other weather data
 app.post("/addCity", async (req, res) => {
-  console.log('entering post')
-  const city = await req.body
-  console.log(city)
-  res.send(`We can search for this item on our backend: ${city}`)
-  // try {
-  //   //SQL Query
-  //   const newCity = {};
-  // } catch {}
+  try {
+    const city = req.body;
+    console.log(city);
+    //SQL Query
+    const result = await db.query(
+      "INSERT INTO city_weather(city) VALUES ($1) RETURNING * ",
+      [city]
+    );
+    let response = result.rows[0];
+    console.log(response);
+    res.json(response);
+  } catch (e) {
+    console.log(e);
+    return res.status(400).json({ e });
+  }
 });
 
 // console.log that your server is up and running
