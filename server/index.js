@@ -19,8 +19,8 @@ app.get("/", (req, res) => {
   res.send("This is the home page");
 });
 
+//I call this route from the frontend in Form.jsx so I can fetch data from API and show it to user
 app.get("/api", async (req, res) => {
-  //console.log({req, "from the get"})
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${req.query.city}&appid=${APIKEY}`;
   const response = await fetch(url);
   const weatherData = await response.json();
