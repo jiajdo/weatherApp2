@@ -2,3 +2,7 @@ server/node_modules
 **/node_modules
 .env
 *.env
+.vscode/settings.json
+.DS_Store
+
+
